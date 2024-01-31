@@ -58,7 +58,9 @@ public:
         return cnt;
     }
     friend ostream& operator << (ostream& ostream, MyPriorityQueue queue) {
-        ostream << "Head element of the queue: " << queue.head->data << endl;
+        if (queue.head != nullptr) {
+            ostream << "Head element of the queue: " << queue.head->data << endl;
+        }
         ostream << "Size of the queue: " << queue.size() << endl;
         ostream << "All elements of the queue: ";
         Node* now = queue.head;
@@ -84,4 +86,9 @@ int main() {
     cout << queue.peek() << endl;
     cout << "-----------------------" << endl;
     cout << queue;
+    cout << "-----------------------" << endl;
+    MyPriorityQueue<int> queue2;
+    queue2.pop();
+    queue2.peek();
+    cout << queue2;
 }
